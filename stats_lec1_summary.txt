@@ -1,0 +1,79 @@
+## Summarizing the Power point
+1. Data Collection
+	a) Influences the quality and reproducibility
+	b) Statistics can't fix data
+	c) Type of data to be collected (e.g. Categorical, Continuous, Discrete, ... etc.)
+	d) The source of data (Cell lines, Animal models, Simulations, ...etc) Knowing the source will help us to determine the correct sample size & power calculations.
+	e) Understand the limitation of your device that collects the data.
+
+2. Descriptive Analysis
+	a) Frequency tables, Bar graphs, Pie charts.
+	b) Scatter plot, histogram, probability plot, Steam-Leaf plot, Whisker-box plot
+	c) Assess linear relationship, central tendency, Spread, presence of outliers, & underlying distribution.
+
+3. Geometric mean
+	a) is the arithmetic mean of the logarithmic transformation of the data
+	b) More sensitive to outliers that median but less sensitive than mean
+
+4. Range = maximum observation - minimum observation (Very sensitive to extereme ovservations)
+5. Variance: 
+	a) Computational more expensive
+	b) S^2 = (sum(x_i^2) - ( (sum(x_i))^2 )/n)/(n-1)
+	c) IQR = Q_3 - Q_1
+	d) SD = sqrt(S^2)
+
+6. Check for normality:
+	a) Descriptive tools:
+		i) Relationship between mean, median and mode. If mean=median=mode, then it is a normal distr. If median<mean then it is a +ve or right skewed. If the median>mean then it is -ve or left skewed.
+		ii) Skeweness: Skewenes in the range of (-0.5,0.5) then the distribution has a normal skewness, 0.5<|skewness|<1 then the distribution is moderately skewed, and |skeweness|>1 then the distribution is heavily skewed.
+		iii) Kurtosis: define the "peakness" of the distribution. If the kurtosis is close to zero, then the distribution has a normal peak. If the kurtosis>0, then the distribution has an acute peak (tall). If the kurtosis<0, then the distribution has a small peak (flat). |kurtosis|<1 is accepted as normality range. Distibutions with zero kurtosis are called mesokurtic family, Distributions with positive kurtosis are called Leptokurtic family, and Distributions with negative kurtosis are called platykurtic family.
+
+7. Skeweness is defined as: Summation((x_i - x_bar)^3 / (n-1)*S^3)
+8. Kurtosis is defined as: Summation( (x_i-x_bar)^4 / (n-1)*S^4)
+9 Questions:
+	i) If the normal distibution has a mean equals to the median, so median will be a representative statistic as well for the normal distribution case, and for the skewed distribution the median is a better statistic than mean since it is more robust against outliers. So, why don't we just use the median??
+	ii) Why most of the statistics procedures rely on the mean? is it because of the linear calculations used for calculating the mean?
+	iii) Why would I use the geometric mean to mitigate the effect of outliers if I can just use the median and it is more robust??
+
+
+## Summarizing Gad ch2 p5-19
+1. Statistics is used mainly for 3 reasons:
+	a) Hypothesis testing: Determine if 2 or more groups differ from each others at a predetermined level of confidence.
+	b) Construction and use of models that can predict future outcomes: Can be seen in linear regression or the derivation of some form of correlation coefficient.
+	c) Feature reduction: By removing redundant and less informative features. It facilitates the visualization and better understanding of the data. Examples factor analysis, and cluster analysis.
+
+
+2. Difference between Standard Deviation (SD) and Standard Error of the Mean (SEM):
+	i) SD: is usually what we need to know about our data and it represents the dispersion of our data around the mean, reflects the error in the measurments, or measures the variability of the measured quantitiy.
+	ii) SEM: is usually of a less value than SD and this is why most researchers prefers to report SEM instead of SD. however, it refers to totally different variability. SEM is more related to the centeral limit theorem at which when we have many samples, the distribution of the means of these samples are going to follow normal distribution. The SD of that normal distribution is called SEM, and it refers to the error/variability of a mean of a random sample from the population mean (mean of all samples means).
+
+	iii) let x_p be the population mean, x_s be a sample mean, then we are 95% confidient that x_p falls within the range of x_s+/-(1.96*SEM)
+
+3. Coefficient of Variaction (CV):
+	i) CV = SD/mean. represents the relative variablity of data.
+
+4. Outliers can be detected visually using scattergram.
+	i) In medical/biological field, outliers are not instantly removed. Because sometimes these outliers refer to some siginifcant effect that hasn't yet been discovered and this is why we call it an outlier because we don't understant why it is far away from the body of our data.
+	ii) Outliers increase the variability of our data, and decrease the senstivity to any statistical significant result.
+
+5. For normally distributed data with a single extreme value we can use "Chauvenet's Criterion":
+	i) Chauvenet's criterion states that if the probability of a value deviating from the mean is greater than (1/2)*N, then you can remove it. Limitation of Chauvenet's criterion is that as N increases the number of points to be rejected increases.
+	ii) Winsorize (G-1 method) is to replace extereme data points with the closest least extreme points. It is not applicable if the extreme points represents more than the small minority of the data.
+	iii) Dixon's test to determine if an extreme value should be rejected. The data points are sorted, ratio of the difference of an extreme value from on of its nearest neighbor values in the range of values in the sample is then calculated, using a frmula that varies with a sample size. The ratio is then compared to a table value, and , if found to be equal or greater, is to be an outlier at the p<0.05 level.
+	iv) As more information about the nature of data is known, the better algorithm it can be used to handle outliers. There are many more outliers handling algorithm out there depends on the type of data.
+
+6. the 3 main assumptions for sampling:
+	a) The sample is collected without bias.
+	b) Each member of a sample is collected independently of the others.
+	c) The members of a sample are collected with replacements. (After each portion is selected and measured, it is returned to the total sample pool and thus has the opportunity to be selected again). Note that, if the pool we are selecting from is more than 20, then replacement is not really significant because each member has a small chance to be selected anyway. Thus, the probability of each member to be selected can be considered the same after selecting our first pool.
+
+7. 4 Major types of sampling:
+	a) Random: The most commonly used in toxicology. Stress the fullfillment of the assumption of avoiding bias.
+	b) Stratified: First divide the entire pool into subsets or strata, the randomly sample from each strata. members with each strata usually shares the same characteristics.
+	c) Systematic: Sample is taken at a set interval (e.g. every fifth member in the list will be sampled). Mostly used in quality assurance.
+	d) Cluster: Pool is already divided into numerous separate groups, select small sets of groups, then select a few members from each set. 
+
+
+
+
+
